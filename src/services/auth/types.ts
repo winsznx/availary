@@ -44,10 +44,27 @@ export class AuthError extends Error {
   }
 }
 
+/**
+ * Thrown by `signIn('email_link' method, address)` once the link has been
+ * sent — not a failure. `email_link` sign-in has no session to return yet
+ * (unlike `oauth`, the page never navigates away), so callers must
+ * distinguish this from a real error to show a "check your inbox" state.
+ */
+export class EmailLinkSent extends Error {
+  readonly email: string;
+
+  constructor(email: string) {
+    super(`A sign-in link was sent to ${email}.`);
+    this.name = 'EmailLinkSent';
+    this.email = email;
+  }
+}
+
 export interface AuthService {
   getCapabilities(): Promise<AuthCapabilities>;
   /** Resolves `null` when signed out; throws `AuthError` on expiry/unavailability. */
   getSession(): Promise<AuthSession | null>;
-  signIn(methodId: string): Promise<AuthSession>;
+  /** `input` carries the email address for an `email_link` method; ignored by other methods. */
+  signIn(methodId: string, input?: string): Promise<AuthSession>;
   signOut(): Promise<void>;
 }

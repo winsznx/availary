@@ -11,6 +11,7 @@ import { ProvidersScreen } from './screens/ProvidersScreen';
 import { RadarScreen } from './screens/RadarScreen';
 import { SettingsScreen } from './screens/SettingsScreen';
 import { SignInScreen } from './screens/SignInScreen';
+import { ServiceProvider } from './services/ServiceContext';
 
 export default function App() {
   return (
@@ -18,7 +19,16 @@ export default function App() {
       <Route element={<AppShell />}>
         {/* Public and login-free */}
         <Route path="/" element={<LandingScreen />} />
-        <Route path="/demo" element={<DemoScreen />} />
+        {/* Always fixture-backed, even when the app is wired to the real
+            backend — the public demo may never dial or read real user data. */}
+        <Route
+          path="/demo"
+          element={
+            <ServiceProvider>
+              <DemoScreen />
+            </ServiceProvider>
+          }
+        />
         <Route path="/signin" element={<SignInScreen />} />
         {/* Pre-auth creation flow: define the need and build a shortlist freely */}
         <Route path="/start" element={<CareNeedScreen />} />

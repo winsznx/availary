@@ -25,7 +25,7 @@ interface AuthValue {
   session: AuthSession | null;
   capabilities: AuthCapabilities | null;
   sessionError: AuthErrorCode | null;
-  signIn: (methodId: string) => Promise<AuthSession>;
+  signIn: (methodId: string, input?: string) => Promise<AuthSession>;
   signOut: () => Promise<void>;
   retry: () => void;
 }
@@ -82,8 +82,8 @@ export function AuthProvider({
       session,
       capabilities,
       sessionError,
-      signIn: async (methodId: string) => {
-        const next = await service.signIn(methodId);
+      signIn: async (methodId: string, input?: string) => {
+        const next = await service.signIn(methodId, input);
         setSession(next);
         setSessionError(null);
         setStatus('ready');

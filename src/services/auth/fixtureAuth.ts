@@ -55,13 +55,13 @@ export function createFixtureAuth(
       return session;
     },
 
-    async signIn(methodId) {
+    async signIn(methodId, input) {
       if (!FIXTURE_CAPABILITIES.methods.some((m) => m.id === methodId)) {
         throw new Error(`Unknown sign-in method: ${methodId}`);
       }
       session = {
         userId: 'user-fixture',
-        email: 'parent@example.com',
+        email: input && methodId === MOCK_EMAIL_METHOD_ID ? input : 'parent@example.com',
         displayName: 'Demo parent',
       };
       return session;
