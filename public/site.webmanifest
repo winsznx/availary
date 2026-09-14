@@ -1,0 +1,13 @@
+{
+  "name": "Availary",
+  "short_name": "Availary",
+  "description": "Live childcare availability, built from phone observations you approve.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FBFBEA",
+  "theme_color": "#FBFBEA",
+  "icons": [
+    { "src": "/availary-app-icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/availary-app-icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

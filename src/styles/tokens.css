@@ -1,0 +1,84 @@
+/*
+ * Availary design tokens.
+ *
+ * Skin palette is the approved playful-brutalist prototype identity
+ * (PROTOTYPE-CORRECTIONS.md §16). Typography follows brand truth:
+ * Source Serif 4 (editorial display) + Inter (product UI) per §15.
+ * Semantic availability colours are for state only and are always paired
+ * with a written state label.
+ */
+
+:root {
+  /* Surfaces */
+  --cream: #fbfbea;
+  --paper: #fffdf2;
+  --lemon-tint: #e8eccf;
+  --green: #ddf4c8;
+
+  /* Text */
+  --ink: #11170d;
+  --muted: #5e685b;
+
+  /* Structure */
+  --line: #c8d0c2;
+  --line-soft: #dde0d8;
+
+  /* Brand energy */
+  --lemon: #dde63a;
+  --lemon-dark: #9fa80d;
+
+  /* Semantic availability / freshness */
+  --leaf: #3f8069;
+  --periwinkle: #6a6fc7;
+  --clay: #ad5e55;
+  --graphite: #7b8580;
+
+  /* Typography */
+  --serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  --sans: Inter, Arial, system-ui, sans-serif;
+
+  /* Spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+
+  /* Radii — compact, lightly brutalist */
+  --radius-xs: 4px;
+  --radius-control: 6px;
+  --radius-card: 10px;
+  --radius-sheet: 14px;
+  --radius-pill: 999px;
+
+  /* Borders */
+  --border: 1px solid var(--line);
+  --border-ink: 1.5px solid var(--ink);
+  --border-hairline: 1px solid var(--line-soft);
+
+  /* Elevation — restrained; offset shadow is the brutalist accent */
+  --shadow-offset: 3px 3px 0 var(--ink);
+  --shadow-offset-sm: 2px 2px 0 var(--ink);
+  --shadow-sheet: 0 18px 48px rgba(17, 23, 13, 0.18);
+
+  /* Motion */
+  --dur-fast: 160ms;
+  --dur-control: 200ms;
+  --dur-state: 280ms;
+  --ease-out: cubic-bezier(0.2, 0.9, 0.25, 1);
+
+  /* Layout */
+  --content-max: 1200px;
+  --nav-height: 64px;
+}
+
+/* Breakpoints (documented — media queries cannot read custom properties):
+ *   mobile  390  --break-mobile
+ *   tablet  768  --break-tablet
+ *   laptop  1280 --break-laptop
+ *   desktop 1440 --break-desktop
+ */
